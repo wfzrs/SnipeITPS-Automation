@@ -1,4 +1,4 @@
-﻿$SnipeShare = "INSERT SHARE HERE"
+﻿$SnipeShare = "\\wfzrsfp-01\IT\SnipeITcsvRepo"
 
 Get-ChildItem $snipeshare -Filter *.csv | Select-Object -ExpandProperty FullName | Import-Csv | Export-Csv $snipeshare\merged\merged.csv -NoTypeInformation -force
 
