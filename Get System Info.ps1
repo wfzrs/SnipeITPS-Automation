@@ -1,6 +1,6 @@
 $s = $Env:Computername
 
-$SnipeShare = "INSERT SHARE HERE"
+$SnipeShare = "\\wfzrsfp-01\IT\SnipeITcsvRepo"
 
 $WorkstationFile = "$SnipeShare\$s.csv"
 
@@ -10,25 +10,17 @@ Catch {
     return 1;
 }
 
-
-$CpuInfo =  (Get-WmiObject win32_processor).name
-
+$CpuInfo = (Get-WmiObject win32_processor).name
 
 $SysInfo = Get-Ciminstance -class win32_ComputerSystem
-
     $Model = $Sysinfo.model
-
     $MemorySmall = [math]::Ceiling($SysInfo.TotalPhysicalMemory / 1024 / 1024 / 1024)
-
     $Hostname = $SysInfo.name
 
 
 $BiosInfo = Get-Ciminstance Win32_BIOS
-
     $Manufacturer = $BiosInfo.Manufacturer
-
     $Serial = $BiosInfo.SerialNumber
-
 
 $DiskInfo = Get-Ciminstance Win32_logicalDisk
     
@@ -38,13 +30,11 @@ $DiskInfo = Get-Ciminstance Win32_logicalDisk
 $OSInfo = (Get-CIMinstance Win32_OperatingSystem).caption
 
 
-$LastUser = $(Get-WMIObject -class Win32_ComputerSystem | select username).username
-
+$LastUser = $(Get-WMIObject -class Win32_ComputerSystem | Select-Object username).username
 
 $status = "Ready to Deploy"
 
 $Categoryid = "3"
-
 
 Foreach ($CPU in $CPUInfo) {
     $infoObject = [PSCustomObject][ordered]@{

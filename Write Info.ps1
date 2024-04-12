@@ -4,7 +4,7 @@ Get-ChildItem $snipeshare -Filter *.csv | Select-Object -ExpandProperty FullName
 
 $WorkstationFile = "$SnipeShare\merged\merged.csv"
 
-$apikey = "INSERT API KET HERE"
+$apikey = "INSERT API KEY HERE"
 $url = "INSERT URL HERE"
 
 Connect-SnipeitPS -url $url -apiKey $apikey
