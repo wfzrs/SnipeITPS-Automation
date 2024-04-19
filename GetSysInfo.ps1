@@ -1,6 +1,6 @@
 $s = $Env:Computername
 
-$SnipeShare = "\\wfzrsfp-01\IT\SnipeITcsvRepo"
+$SnipeShare = "\\Share\directory"
 
 $WorkstationFile = "$SnipeShare\$s.csv"
 
